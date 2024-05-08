@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TRIVAGO</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    .destination-image {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  <script>
+    // Function to handle storing event information in local storage
+    function storeEventInfo() {
+      var eventInfo = $("#eventInfo").val();
+      localStorage.setItem("eventInfo", eventInfo);
+      alert("Event information stored successfully!");
+    }
+
+    // Function to retrieve stored event information from local storage
+    function retrieveEventInfo() {
+      var storedEventInfo = localStorage.getItem("eventInfo");
+      if (storedEventInfo) {
+        $("#storedEventInfo").text(storedEventInfo);
+      } else {
+        $("#storedEventInfo").text("No event information stored.");
+      }
+    }
+  </script>
+</head>
+<body>
+
+<!-- Panel for navigation -->
+<div data-role="panel" id="myPanel">
+  <h2>Menu</h2>
+  <ul data-role="listview">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#eventDialog" data-rel="dialog">Upcoming Event</a></li>
+  </ul>
+</div><!-- /panel -->
+
+<!-- First Page -->
+<div data-role="page" id="home">
+  <div data-role="header">
+    <h1>TIVAGO</h1>
+    <a href="#myPanel" data-icon="bars" data-iconpos="notext">Menu</a>
+  </div><!-- /header -->
+
+  <div role="main" class="ui-content">
+    <h2>Welcome to our Travel Website!</h2>
+    <p>Explore our exciting destinations below:</p>
+
+    <!-- Grid for displaying destinations -->
+    <div class="ui-grid-solo">
+      <div class="ui-block-a">
+        <a href="#paris" class="ui-btn ui-corner-all ui-shadow">
+          <img src="D:\Bhavana\imeges\asia.jpg" alt="Paris" class="destination-image">
+          <h3>Paris</h3>
+        </a>
+      </div>
+      <div class="ui-block-a">
+        <a href="#tokyo" class="ui-btn ui-corner-all ui-shadow">
+          <img src="D:\Bhavana\imeges\europe jpg.jpg" alt="Tokyo" class="destination-image">
+          <h3>Tokyo</h3>
+        </a>
+      </div>
+      <div class="ui-block-a">
+        <a href="#newyork" class="ui-btn ui-corner-all ui-shadow">
+          <img src="D:\Bhavana\imeges\asia2.webp" alt="New York" class="destination-image">
+          <h3>New York</h3>
+        </a>
+      </div>
+    </div><!-- /grid -->
+  </div><!-- /content -->
+
+  <div data-role="footer">
+    <a href="packages" > Home</a></li><br>
+    <p>Copyrigth 2024|TRIVAGO All Rigths Reserved</p>
+  </div><!-- /footer -->
+
+</div><!-- /page -->
+
+<!-- Paris Page -->
+<div data-role="page" id="paris">
+  <div data-role="header">
+    <h1>Paris</h1>
+  </div><!-- /header -->
+
+  <div role="main" class="ui-content">
+    <h2>Welcome to Paris!</h2>
+    <p>Explore the beauty and charm of the City of Light.</p>
+  </div><!-- /content -->
+
+  <div data-role="footer">
+    <h4>Link for package
+      Family-friendly Paris adventures. 
+      Create lasting memories. 
+      Get tour details on a click. Paris ! See Tokyo's iconic landmarks.
+    </h4>
+    <a href="packages" > Home</a></li><br>
+    <p>Copyrigth 2024|TRIVAGO All Rigths Reserved</p>
+
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Tokyo Page -->
+<div data-role="page" id="tokyo">
+  <div data-role="header">
+    <h1>Tokyo</h1>
+  </div><!-- /header -->
+
+  <div role="main" class="ui-content">
+    <h2>Welcome to Tokyo!</h2>
+    <p>Experience the bustling streets and rich culture of Tokyo.</p>
+  </div><!-- /content -->
+
+  <div data-role="footer">
+    <h4>Link for package
+      Family-friendly Tokyo adventures. 
+      Create lasting memories. 
+      Get tour details on a click. Tokyo! See new York's iconic landmarks.
+    </h4>
+    <a href="packages" > Home</a></li><br>
+    <p>Copyrigth 2024|TRIVAGO All Rigths Reserved</p>
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- New York Page -->
+<div data-role="page" id="newyork">
+  <div data-role="header">
+    <h1>New York</h1>
+  </div><!-- /header -->
+
+  <div role="main" class="ui-content">
+    <h2>Welcome to New York!</h2>
+    <p>Discover the energy and excitement of the Big Apple.</p>
+  </div><!-- /content -->
+
+  <div data-role="footer">
+    <h4>Link for package
+      Family-friendly New York adventures. 
+      Create lasting memories. 
+      Get tour details on a click. New York ! See Paris, New York Tokyo's iconic landmarks.
+    </h4>
+    <a href="packages" > Home</a></li><br>
+    <p>Copyrigth 2024|TRIVAGO All Rigths Reserved</p>
+
+
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Dialogue Box for Event -->
+<div data-role="page" id="eventDialog">
+  <div data-role="header">
+    <h1>Upcoming Event</h1>
+  </div><!-- /header -->
+
+  <div role="main" class="ui-content">
+    <p>Please enter information about the upcoming event:</p>
+    <label for="eventInfo">Event Information:</label>
+    <textarea id="eventInfo"></textarea>
+    <button onclick="storeEventInfo()">Save</button>
+    <button onclick="retrieveEventInfo()">Retrieve Stored Info</button>
+    <p id="storedEventInfo">No event information stored.</p>
+  </div><!-- /content -->
+
+  <div data-role="footer">
+    <p>Copyrigth 2024|TRIVAGO All Rigths Reserved</p>
+  </div><!-- /footer -->
+</div><!-- /eventDialog -->
+
+</body>
+</html>
